@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap">
 <style>
 /* Bracket homepage, option B3: Price picker */
+html,body{margin:0}
 :root{
   --bg:#FFFFFF; --sky:#EAF3FC; --sky2:#D8E9FA; --fg:#1B2B44; --muted:#5A6B82; --line:#E3EAF3;
   --accent:#2F6FD0; --accent-ink:#FFFFFF; --peach:#FFE3D3; --mint:#DDF3E8; --lilac:#ECE6FB;
@@ -17,12 +18,12 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
-body{background:var(color:var(font-family:var(--font);line-height:1.6}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(text-wrap:balance} ul,ol{margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--sky)}
+p{margin:0} h1,h2,h3{margin:0;text-wrap:balance} ul,ol{margin:0;padding:0}
 .wrap{max-width:1080px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
 @media (max-width:480px){.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
 .num{font-variant-numeric:tabular-nums}
-html,body{margin:0}
 :focus-visible{outline:3px solid #8FB3E8;outline-offset:3px;border-radius:8px}
 .vb{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:17px;line-height:1.65}
 .vb h1,.vb h2{font-weight:800;letter-spacing:-.02em;line-height:1.12}
