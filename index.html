@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bracket Tax</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Bracket homepage, option C: Simple and modern */
+:root{
+  --c-bg:#FFFFFF; --c-soft:#F6F7F9; --c-fg:#16213A; --c-muted:#5D6678; --c-line:#E6E9EF; --c-accent:#16213A; --c-sun:#FFD873; --c-sun-soft:#FFF4D6;
+  --serif:"Instrument Serif", Georgia, serif;
+  --figtree:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --nunito:"Nunito", "Figtree", system-ui, sans-serif;
+  --grotesk:"Bricolage Grotesque", "Figtree", system-ui, sans-serif;
+  color-scheme:light;
+}
+html,body{margin:0}
+*{box-sizing:border-box}
+body{background:var(--c-bg);font-family:var(--figtree);line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--c-bg)}
+p{margin:0} h1,h2,h3{margin:0;text-wrap:balance}
+ul{margin:0;padding:0}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+@media (max-width:480px){.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+.num{font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid #8FB3E8;outline-offset:3px;border-radius:6px}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.vc{background:var(--c-bg);color:var(--c-fg);font-family:var(--figtree);font-size:17px;line-height:1.65}
+.vc h1,.vc h2{font-family:var(--grotesk);font-weight:700;letter-spacing:-.025em;line-height:1.04}
+.vc h1{font-size:clamp(2.8rem,7vw,5.2rem)} .vc h2{font-size:clamp(2rem,4.4vw,3rem)}
+.vc h3{font-family:var(--grotesk);font-weight:500;font-size:1.3rem}
+.vc .mark{background:linear-gradient(transparent 62%,var(--c-sun) 62% 92%,transparent 92%);padding-inline:.08em}
+.vc .nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:24px}
+.vc .brand{font-family:var(--grotesk);font-weight:700;font-size:1.5rem;letter-spacing:-.02em}
+.vc .brand i{font-style:normal;color:var(--c-sun);-webkit-text-stroke:0}
+.vc .links{display:flex;gap:4px;align-items:center}
+.vc .links span{color:var(--c-muted);padding:8px 12px;font-weight:500}
+.vc .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:12px;padding:15px 24px;font-weight:600;text-decoration:none;background:var(--c-accent);color:#fff}
+.vc .btn.line{background:transparent;color:var(--c-fg);border:1.5px solid var(--c-line)}
+.vc .hero{padding-block:72px 40px;display:grid;gap:28px}
+.vc .lede{font-size:1.22rem;color:var(--c-muted);max-width:52ch}
+.vc .cta{display:flex;gap:12px;flex-wrap:wrap}
+.vc .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:end;padding-block:24px 0}
+.vc .rung{border-radius:18px;padding:22px;display:grid;gap:6px;align-content:end;background:var(--c-soft)}
+.vc .rung:nth-child(1){min-height:150px}.vc .rung:nth-child(2){min-height:190px}.vc .rung:nth-child(3){min-height:230px;background:var(--c-sun-soft);outline:2px solid var(--c-sun)}.vc .rung:nth-child(4){min-height:270px}
+.vc .rung .p{font-family:var(--grotesk);font-weight:700;font-size:2.1rem;line-height:1;letter-spacing:-.02em}
+.vc .rung b{font-weight:600}
+.vc .rung small{color:var(--c-muted);font-size:.9rem;line-height:1.45}
+.vc .sec{padding-block:96px;display:grid;gap:48px}
+.vc .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.vc .split>*{min-width:0}
+.vc .stack{display:grid;gap:18px}
+.vc .rows{display:grid;border-top:1px solid var(--c-line)}
+.vc .rows>div{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:22px 0;border-bottom:1px solid var(--c-line);align-items:baseline}
+.vc .rows .who{font-weight:600}
+.vc .rows .r{font-family:var(--grotesk);font-weight:500;font-size:1.25rem}
+.vc .rows p{grid-column:1/-1;color:var(--c-muted)}
+.vc .rows .us{background:var(--c-sun-soft);margin-inline:-20px;padding-inline:20px;border-radius:14px;border-bottom-color:transparent}
+.vc .people{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.vc .people div{background:var(--c-soft);border-radius:16px;padding:20px;font-weight:500}
+.vc .consult{background:var(--c-fg);color:#fff;border-radius:28px;padding:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.vc .consult>*{min-width:0}
+.vc .consult p{color:#C9D0DD}
+.vc .consult .p{font-family:var(--grotesk);font-weight:700;font-size:2.4rem;color:var(--c-sun)}
+.vc .consult .btn{background:var(--c-sun);color:var(--c-fg)}
+.vc .foot{border-top:1px solid var(--c-line);padding-block:40px;color:var(--c-muted);font-size:.95rem}
+@media (max-width:900px){.vc .split,.vc .consult{grid-template-columns:1fr;gap:36px}.vc .consult{padding:36px 26px}.vc .people{grid-template-columns:repeat(2,1fr)}.vc .links span{display:none}}
+@media (max-width:620px){.vc .ladder{grid-template-columns:repeat(2,1fr)}.vc .rung{min-height:0!important}}
+</style>
+</head>
+<body>
+<div class="vc" data-v="c">
+  <div class="wrap nav">
+    <div class="brand">[bracket<i>]</i></div>
+    <div class="links"><span>How it works</span><span>Pricing</span><span>Consultations</span><span>FAQ</span><a class="btn" href="#" style="padding:11px 18px">Get a quote</a></div>
+  </div>
+  <div class="wrap">
+    <div class="hero">
+      <h1>A tax pro for your return. <span class="mark">One fixed price.</span></h1>
+      <p class="lede">Every return is prepared and signed by a CPA or Enrolled Agent. You'll know your price before we start, and you pay only after you've reviewed your finished return.</p>
+      <div class="cta"><a class="btn" href="#">Find your price →</a><a class="btn line" href="#">How it works</a></div>
+      <div class="ladder" aria-label="The four fixed prices">
+        <div class="rung"><span class="p num">$750</span><b>Essential</b><small>Wages, retirement, investments, a home</small></div>
+        <div class="rung"><span class="p num">$1,000</span><b>Plus</b><small>Bigger portfolios, K-1s, two states</small></div>
+        <div class="rung"><span class="p num">$1,250</span><b>Premier</b><small>Business, farm and rental income</small></div>
+        <div class="rung"><span class="p num">$1,500</span><b>Private Client</b><small>Many states, stock options, foreign income</small></div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="split">
+        <div class="stack"><h2>Between a retail chain and a boutique firm</h2><p class="lede">The care of a dedicated preparer, without hourly billing.</p></div>
+        <div class="rows">
+          <div><span class="who">Retail chains and DIY software</span><span class="r num">$0–$500</span><p>Fees add up form by form, and it's hard to reach the same person later.</p></div>
+          <div class="us"><span class="who">Bracket</span><span class="r num">$750–$1,500</span><p>A credentialed preparer, a simple secure portal, one fixed price.</p></div>
+          <div><span class="who">Boutique CPA firms</span><span class="r num">$2,500+</span><p>Right for trusts and large businesses. More than most families need.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec" style="padding-top:0">
+      <h2>For anyone who files a personal return</h2>
+      <div class="people"><div>First-time filers</div><div>Growing families</div><div>Homeowners</div><div>Retirees</div><div>Freelancers</div><div>Landlords and farmers</div><div>Investors</div><div>Big life changes</div></div>
+    </div>
+    <div class="sec" style="padding-top:0">
+      <div class="consult">
+        <div class="stack"><h2>45 minutes with your preparer</h2><p>Plan for a new baby, a home purchase or retirement, or go through your finished return line by line.</p></div>
+        <div class="stack"><span class="p num">$200 <span style="font-size:1rem;color:#C9D0DD;font-weight:500">with a return</span></span><p>$250 on its own. One included with Private Client.</p><div><a class="btn" href="#">Book a session</a></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div class="wrap"><span>Bracket · Fixed-fee personal tax preparation</span><span>How it works · Pricing · Consultations · FAQ</span></div></div>
+</div>
+</body>
+</html>
